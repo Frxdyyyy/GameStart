@@ -1,4 +1,4 @@
-package com.GameStart.GameStart.Controller;
+package com.GameStart.GameStart.Model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,26 +7,29 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@Entity
 
+@Entity
+@Table(name = "juego")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Juego {
     @Id
-    @GenerationValue(strategy = GnerationType.IDENTITY)
-    private Intefer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    @Column(nullable=true)
+    @Column(nullable = true)
     private String nombre_juego;
 
-    @Column(nullable=true)
+    @Column(nullable = true)
     private String genero_juego;
 
-    @Column(nullable=true)
+    @Column(nullable = true)
     private String stock_juego;
 
-    @Column(nullable=true)
+    @Column(nullable = true)
     private String precio_juego;
 
-    @ManyToOne 
+    @ManyToOne
     private Venta venta;
-    
 }
